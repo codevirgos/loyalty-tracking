@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View, Image } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const HomeScreen = ({navigation}) => {
@@ -21,6 +21,21 @@ const HomeScreen = ({navigation}) => {
                 <Text style={{color:'gray', fontSize:16}}>Track customer rewards </Text>
               </View>
             </View>
+
+            <Text style={{marginTop:30, fontSize:16}}>
+              Customer Phone Number
+            </Text>
+            <View style={{flexDirection:"row"}}>
+              <View style={{paddingHorizontal:10, borderWidth:1, height:50, width:'75%', borderColor:'lightgray', borderRadius:8, marginRight:10, flexDirection:'row', alignItems:'center'}}>
+                <Image style={{tintColor:'gray', marginRight:5, width:25, height:25}} source={require("../images/phone.png")} />
+                <TextInput style={{fontSize:16, color:'gray'}} placeholderTextColor={'silver'} placeholder='(555) 123-4567' />
+              </View>
+              <TouchableOpacity>
+                <View style={{padding:15, borderRadius:8, backgroundColor:'#8C3E8C', justifyContent:'center'}}>
+                  <Text style={{color:'white'}}> Lookup </Text>
+                </View>
+               </TouchableOpacity>
+            </View>
           </View>
         </View>
       </View>
@@ -40,7 +55,7 @@ const styles = StyleSheet.create({
 
   cardContainer: {
     //flexDirection: 'row',
-    alignItems: 'center',
+    //alignItems: 'center',
     gap: 8,
     backgroundColor:'white',
     minHeight:'60%',
