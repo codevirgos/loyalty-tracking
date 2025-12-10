@@ -1,7 +1,11 @@
 import { ScrollView, StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import Validation from '../components/Validation';
 
 const HomeScreen = ({navigation}) => {
+
+  var isValid = true;
+
   return (
     <ScrollView style={styles.container}>
 
@@ -36,6 +40,15 @@ const HomeScreen = ({navigation}) => {
                 </View>
                </TouchableOpacity>
             </View>
+
+            {isValid ? null :
+              <Validation />
+            }
+            <View style={{alignSelf:'center', alignItems:'center', marginTop:'25%', borderWidth:0, width:'100%'}}>
+              <Image style={{alignSelf:'center', tintColor:'lightgray', width:50, height:50}} source={require("../images/phone.png")} />
+              <Text style={{marginTop:20, color:'gray', fontSize:17}}>Enter a phone number to get started </Text>
+              <Text style={{marginTop:10, color:'silver', fontSize:13}}>Lookup existing customers or register new ones </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -45,17 +58,15 @@ const HomeScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   mainView: {
-    minHeight:'100%'
+    //height:'120%'
   },
 
   bodyView: {
-    padding:30,
-    marginTop:'20%'
+    padding:20,
+    marginTop:'20%',
   },
 
   cardContainer: {
-    //flexDirection: 'row',
-    //alignItems: 'center',
     gap: 8,
     backgroundColor:'white',
     minHeight:'60%',
