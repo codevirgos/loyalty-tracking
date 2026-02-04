@@ -5,7 +5,6 @@ import Registration from '../components/Registration';
 import NewCustomer from '../components/NewCustomer';
 
 const HomeScreen = ({navigation}) => {
-
   var isValid = true;
   var justRegistered = true;
   var newCustomer = false;
@@ -28,7 +27,6 @@ const HomeScreen = ({navigation}) => {
                 <Text style={{color:'gray', fontSize:16}}>Track customer rewards </Text>
               </View>
             </View>
-
             <Text style={{marginTop:30, fontSize:16}}>
               Customer Phone Number
             </Text>
@@ -43,16 +41,12 @@ const HomeScreen = ({navigation}) => {
                 </View>
                </TouchableOpacity>
             </View>
-
             {isValid ? null :
               <Validation />
             }
-
             {justRegistered ?
-
             <View>
             <Registration />
-
             <View style={{ borderWidth:0, minHeight:'30%', marginTop:25, padding:30, paddingTop:45}}>
                <LinearGradient
                 colors={['#FAEDFF', '#E5F0FF']}
@@ -64,9 +58,7 @@ const HomeScreen = ({navigation}) => {
                 <Image style={{tintColor:'#8C3E8C', width:35, height:35, marginRight:10}} source={require("../images/user.png")} />
                 <Text style={{marginTop:0, fontSize:28, fontWeight:'bold'}}>5551234567</Text>
               </View>
-
               <View style={{flexDirection:'row'}}>
-
                 <View style={styles.panels}>
                   <View style={{flexDirection:'row'}}>
                     <Image style={{tintColor:'gold', width:25, height:25}} source={require("../images/award.png")} />
@@ -74,7 +66,6 @@ const HomeScreen = ({navigation}) => {
                   </View>
                   <Text style={{color:'#8C3E8C', fontSize:40, marginLeft:-8, fontWeight:'bold'}}> 430 </Text>
                 </View>
-
                 <View style={styles.panels}>
                   <View style={{flexDirection:'row'}}>
                     <Image style={{tintColor:'green', width:25, height:25}} source={require("../images/trending-up.png")} />
@@ -82,35 +73,30 @@ const HomeScreen = ({navigation}) => {
                   </View>
                   <Text style={{color:'#8C3E8C', fontSize:40, marginLeft:-8, fontWeight:'bold'}}> 10 </Text>
                 </View>
-
               </View>
-
               <TouchableOpacity>
                 <View style={{shadowColor:'white', alignItems:'center', marginTop:20, padding:15, borderRadius:8, backgroundColor:'#F0F0F0', justifyContent:'center'}}>
                   <Text style={{color:'gray', fontSize:18, fontWeight:"bold"}}> Done </Text>
                 </View>
               </TouchableOpacity>
-
               </View>
               <Text style={{alignSelf:'center',fontSize:16, color:'gray', marginTop:30,  borderWidth:0}}> Customer since 12/9/2025 </Text>
               </View>
               :
               null
             }
-
-              {!justRegistered && !newCustomer ?
-                <View style={{alignSelf:'center', alignItems:'center', marginTop:'25%', borderWidth:0, width:'100%'}}>
-                    <Image style={{alignSelf:'center', tintColor:'lightgray', width:50, height:50}} source={require("../images/phone.png")} />
-                    <Text style={{marginTop:20, color:'gray', fontSize:17}}>Enter a phone number to get started </Text>
-                    <Text style={{marginTop:10, color:'silver', fontSize:13}}>Lookup existing customers or register new ones </Text>
-                </View>
-              : null
-              }
-
-              {newCustomer ?
-                <NewCustomer />
-              : null
-              }
+            {!justRegistered && !newCustomer ?
+              <View style={{alignSelf:'center', alignItems:'center', marginTop:'25%', borderWidth:0, width:'100%'}}>
+                  <Image style={{alignSelf:'center', tintColor:'lightgray', width:50, height:50}} source={require("../images/phone.png")} />
+                  <Text style={{marginTop:20, color:'gray', fontSize:17}}>Enter a phone number to get started </Text>
+                  <Text style={{marginTop:10, color:'silver', fontSize:13}}>Lookup existing customers or register new ones </Text>
+              </View>
+            : null
+            }
+            {newCustomer ?
+              <NewCustomer />
+            : null
+            }
           </View>
         </View>
       </View>
