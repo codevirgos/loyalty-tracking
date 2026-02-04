@@ -1,10 +1,10 @@
 import {StyleSheet, Text, View} from 'react-native';
 
-const Validation = () => {
+const Registration = () => {
   return (
     <View style={[styles.mainView]}>
-        <Text style={{fontSize:16, color:'brown'}}>
-            Please enter a valid 10-digit phone number
+        <Text style={{fontSize:16, color:'green'}}>
+            Customer registered successfully!
         </Text>     
     </View>
   );
@@ -12,14 +12,14 @@ const Validation = () => {
 
 const styles = StyleSheet.create({
   mainView: {
-    height:80,
-    backgroundColor:'#FFFFE5',
+    height:60,
+    backgroundColor:'#E5FFF3',
     borderWidth:.5,
-    borderColor:'gold',
+    borderColor:'green',
     borderRadius:10,
     padding:15,
     marginTop:20
   }
 });
 
-export default Validation;
+export default Registration;

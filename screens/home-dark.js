@@ -2,21 +2,17 @@ import { ScrollView, StyleSheet, Text, View, Image, TextInput, TouchableOpacity 
 import { LinearGradient } from 'expo-linear-gradient';
 import Validation from '../components/Validation';
 import Registration from '../components/Registration';
-import NewCustomer from '../components/NewCustomer';
 
-const HomeScreen = ({navigation}) => {
+const HomeDarkScreen = ({navigation}) => {
 
   var isValid = true;
-  var justRegistered = true;
-  var newCustomer = false;
+  var justRegistered = false;
 
   return (
     <ScrollView style={styles.container}>
+
       <View style={styles.mainView}>
-        <LinearGradient
-          colors={['#FAF2FA', 'transparent']}
-          style={styles.gradient}
-        />
+        
         <View style={styles.bodyView}>
           <View style={styles.cardContainer}>
             <View style={{flexDirection:'row'}}>
@@ -24,12 +20,12 @@ const HomeScreen = ({navigation}) => {
                 <Image style={{tintColor:'white'}} source={require("../images/award.png")} />
               </View>
               <View>
-                <Text style={{fontSize:28, fontWeight:'bold'}}>Payback Points </Text>
+                <Text style={{fontSize:28, fontWeight:'bold', color:'white'}}>Payback Points </Text>
                 <Text style={{color:'gray', fontSize:16}}>Track customer rewards </Text>
               </View>
             </View>
 
-            <Text style={{marginTop:30, fontSize:16}}>
+            <Text style={{marginTop:30, fontSize:16, color:'white'}}>
               Customer Phone Number
             </Text>
             <View style={{flexDirection:"row"}}>
@@ -39,7 +35,7 @@ const HomeScreen = ({navigation}) => {
               </View>
               <TouchableOpacity>
                 <View style={{padding:15, borderRadius:8, backgroundColor:'#8C3E8C', justifyContent:'center'}}>
-                  <Text style={{color:'white', textAlign:'center'}}> Lookup </Text>
+                  <Text style={{color:'white'}}> Lookup </Text>
                 </View>
                </TouchableOpacity>
             </View>
@@ -48,23 +44,18 @@ const HomeScreen = ({navigation}) => {
               <Validation />
             }
 
-            {justRegistered ?
+            {justRegistered ? 
 
             <View>
-            <Registration />
+            <Registration /> 
 
-            <View style={{ borderWidth:0, minHeight:'30%', marginTop:25, padding:30, paddingTop:45}}>
-               <LinearGradient
-                colors={['#FAEDFF', '#E5F0FF']}
-                style={styles.gradient2}
-                start={[0, 0.5]}
-                end={[1,0.5]}
-              />
+            <View style={{borderWidth:1, borderColor:'white', borderRadius:10,  minHeight:'40%', marginTop:25, padding:30, paddingTop:45}}>
+               
               <View style={{flexDirection:'row', marginBottom:'10%'}}>
                 <Image style={{tintColor:'#8C3E8C', width:35, height:35, marginRight:10}} source={require("../images/user.png")} />
-                <Text style={{marginTop:0, fontSize:28, fontWeight:'bold'}}>5551234567</Text>
+                <Text style={{marginTop:0, color:'white', fontSize:28, fontWeight:'bold'}}>5551234567</Text>
               </View>
-
+              
               <View style={{flexDirection:'row'}}>
 
                 <View style={styles.panels}>
@@ -74,7 +65,7 @@ const HomeScreen = ({navigation}) => {
                   </View>
                   <Text style={{color:'#8C3E8C', fontSize:40, marginLeft:-8, fontWeight:'bold'}}> 430 </Text>
                 </View>
-
+                
                 <View style={styles.panels}>
                   <View style={{flexDirection:'row'}}>
                     <Image style={{tintColor:'green', width:25, height:25}} source={require("../images/trending-up.png")} />
@@ -86,19 +77,22 @@ const HomeScreen = ({navigation}) => {
               </View>
 
               <TouchableOpacity>
-                <View style={{shadowColor:'white', alignItems:'center', marginTop:20, padding:15, borderRadius:8, backgroundColor:'#F0F0F0', justifyContent:'center'}}>
-                  <Text style={{color:'gray', fontSize:18, fontWeight:"bold"}}> Done </Text>
+                <View style={{shadowColor:'white', alignItems:'center', marginTop:20, padding:15, borderRadius:8, backgroundColor:'black', borderColor:'white', borderWidth:1, justifyContent:'center'}}>
+                  <Text style={{color:'white', fontSize:18, fontWeight:"bold"}}> Done </Text>
                 </View>
               </TouchableOpacity>
 
+             
+
               </View>
-              <Text style={{alignSelf:'center',fontSize:16, color:'gray', marginTop:30,  borderWidth:0}}> Customer since 12/9/2025 </Text>
+
+              <Text style={{alignSelf:'center', marginTop:25, fontSize:16, color:'white',  borderWidth:0}}> Customer since 12/9/2025 </Text>
               </View>
               :
-              null
+              null 
             }
 
-              {!justRegistered && !newCustomer ?
+              {!justRegistered ?
                 <View style={{alignSelf:'center', alignItems:'center', marginTop:'25%', borderWidth:0, width:'100%'}}>
                     <Image style={{alignSelf:'center', tintColor:'lightgray', width:50, height:50}} source={require("../images/phone.png")} />
                     <Text style={{marginTop:20, color:'gray', fontSize:17}}>Enter a phone number to get started </Text>
@@ -106,11 +100,10 @@ const HomeScreen = ({navigation}) => {
                 </View>
               : null
               }
+              
 
-              {newCustomer ?
-                <NewCustomer />
-              : null
-              }
+
+           
           </View>
         </View>
       </View>
@@ -120,6 +113,7 @@ const HomeScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   mainView: {
+    backgroundColor:'black',
     height:'160%'
     //height:'120%'
   },
@@ -127,16 +121,18 @@ const styles = StyleSheet.create({
   bodyView: {
     padding:20,
     marginTop:'20%',
-    height:'120%'
+    height:'130%'
+
   },
 
   cardContainer: {
     gap: 8,
-    backgroundColor:'white',
+    borderWidth:1,
+    borderColor:'gray',
     minHeight:'60%',
     borderRadius:25,
     padding:40,
-    backgroundColor:"white",
+    backgroundColor:"black",
     shadowColor: "gray",
     shadowOffset: {
         width: 0,
@@ -174,10 +170,12 @@ const styles = StyleSheet.create({
     borderRadius:15,
     width:'50%',
     height:100,
-    backgroundColor:'white',
+    backgroundColor:'black',
     marginRight:10,
-    elevation:10
+    elevation:10,
+    borderWidth:1,
+    borderColor:"white"
   }
 });
 
-export default HomeScreen;
+export default HomeDarkScreen;
